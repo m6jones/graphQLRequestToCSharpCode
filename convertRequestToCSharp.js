@@ -23,6 +23,8 @@ const convertResponse = (requestJson, prefix, numberOfTabs = 1) => {
             csharpString += makeALine(`\\"${key}\\": \\"${requestJson[key]}\\", `, numberOfTabs);
         } else if (typeof requestJson[key] === 'number') {
             csharpString += makeALine(`\\"${key}\\": ${requestJson[key]}, `, numberOfTabs);
+        } else if (typeof requestJson[key] === 'boolean') {
+            csharpString += makeALine(`\\"${key}\\": \\"${requestJson[key] ? 'true' : 'false'}\\", `, numberOfTabs);
         } else {
             csharpString += convertResponse(requestJson[key], `\\"${key}\\": {`, numberOfTabs+1);
         }
