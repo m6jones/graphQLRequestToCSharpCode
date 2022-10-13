@@ -18,11 +18,11 @@ const convertResponse = (requestJson, prefix, numberOfTabs = 1) => {
     Object.keys(requestJson).forEach((key) => {
         //csharpString += '\t';
         if (key === 'query') {
-            csharpString += makeALine(`\\"${key}\\": \"" + graphQLQuery + "\" `, numberOfTabs);
+            csharpString += makeALine(`\\"${key}\\": \"" + graphQLQuery + "\", `, numberOfTabs);
         } else if (typeof requestJson[key] === 'string') {
-            csharpString += makeALine(`\\"${key}\\": \\"${requestJson[key]}\\"`, numberOfTabs);
+            csharpString += makeALine(`\\"${key}\\": \\"${requestJson[key]}\\", `, numberOfTabs);
         } else if (typeof requestJson[key] === 'number') {
-            csharpString += makeALine(`\\"${key}\\": ${requestJson[key]}`, numberOfTabs);
+            csharpString += makeALine(`\\"${key}\\": ${requestJson[key]}, `, numberOfTabs);
         } else {
             csharpString += convertResponse(requestJson[key], `\\"${key}\\": {`, numberOfTabs+1);
         }
