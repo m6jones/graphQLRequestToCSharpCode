@@ -1,0 +1,15 @@
+{
+  "name": "convertrequesttocsharp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "go": "node convertRequestToCSharp.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clipboardy": "^3.0.0",
+    "copy-paste": "^1.3.0"
+  }
+}
